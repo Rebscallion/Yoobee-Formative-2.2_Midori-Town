@@ -1,0 +1,1049 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(../img/nnnoise.svg);
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.button {
+  background-color: #f7a03b;
+  color: white;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+i {
+  transition: all 0.3s ease;
+}
+
+.button:hover i {
+  margin-left: 4px;
+}
+
+.toolbar {
+  margin-top: 5px;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 80px 0 0 8px;
+  position: relative;
+  display: inline-block;
+}
+.toolbar #filter-checkbox {
+  width: 100%;
+}
+.toolbar #filter-checkbox input {
+  margin-right: 5px;
+}
+.toolbar #filter-checkbox #size-filter-button {
+  margin-left: 5px;
+}
+.toolbar .dropbtn {
+  background-color: #f7a03b;
+  color: white;
+  font-size: 12px;
+  padding: 4px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.toolbar .dropbtn:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.toolbar .dropbtn:hover i {
+  margin-left: 4px;
+}
+.toolbar .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 349px;
+  padding: 5px 0;
+  overflow: auto;
+  border-radius: 6px;
+  z-index: 8;
+}
+.toolbar .dropdown-content a {
+  background-color: #f7a03b;
+  color: white;
+  font-size: 12px;
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.toolbar .show {
+  display: block;
+}
+
+#huge-blob {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 50vw solid transparent;
+  border-right: 50vw solid transparent;
+  border-top: 250vh solid #fade7a;
+  transition: all 2s ease;
+  margin-top: -250vh;
+  margin-right: -100vh;
+  z-index: 888;
+}
+
+#huge-blob.active {
+  margin-top: 0;
+  margin-right: 0;
+  transform: scale(1.8);
+}
+
+#spirit-content {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  height: 100vh;
+  transition: all 0.3s ease;
+  padding-bottom: 500px;
+}
+#spirit-content i {
+  color: #980116;
+  padding-right: 20px;
+  font-size: 60px;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+#spirit-content #page-content {
+  width: 95%;
+  margin: auto;
+  text-align: center;
+  font-weight: 400;
+}
+#spirit-content #page-content h1 {
+  color: #980116;
+  font-size: 30px;
+  font-family: "Unica One", cursive;
+  font-weight: 300;
+  margin: 20px;
+}
+#spirit-content #page-content img {
+  height: 220px;
+}
+#spirit-content #page-content #about-content {
+  font-size: 12px;
+  margin: 10px;
+  padding: 10px 20px;
+  color: #980116;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+#spirit-content.active {
+  visibility: visible;
+  opacity: 1;
+  z-index: 999;
+}
+
+nav {
+  height: 10.5vh;
+  background-color: #c098d7;
+  display: flex;
+  line-height: 10.5vh;
+  position: fixed;
+  padding: 0 10px;
+  z-index: 50;
+  font-family: "Unica One", cursive;
+  font-weight: 300;
+}
+nav #logo {
+  width: 77vw;
+  display: flex;
+}
+nav #logo #desktop-img {
+  display: none;
+}
+nav #logo img {
+  margin: 6px 0;
+  border: solid 2px #1F1CB1;
+  height: 8vh;
+}
+nav #logo #company {
+  color: white;
+  margin-left: 20px;
+  line-height: 10.5vh;
+  width: 140px;
+}
+nav #logo #company h1 {
+  font-size: 25px;
+}
+nav #nav-bar {
+  display: none;
+  width: 100%;
+  font-family: "Crimson Pro", serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 10vh;
+  min-height: 90vh;
+  z-index: 1;
+  padding: 0 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: #c098d7;
+}
+nav #nav-bar #site-links {
+  margin-top: 25vh;
+  flex-wrap: wrap;
+  height: 20vh;
+}
+nav #nav-bar #site-links a {
+  color: white;
+}
+nav #nav-bar #site-links li {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  font-size: 26px;
+  list-style: none;
+  color: white;
+  width: 100%;
+}
+nav #nav-bar #site-links a:hover,
+nav #nav-bar #site-links li:hover {
+  cursor: pointer;
+  color: #caffd2;
+}
+nav #hamburger {
+  z-index: 5;
+  width: 16vw;
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  font-size: 22px;
+}
+
+#content {
+  padding: 0px 8px;
+}
+#content #notifications {
+  display: flex;
+  flex-wrap: wrap;
+}
+#content #notifications .alert {
+  width: 100%;
+  color: white;
+  background: #84b2e0;
+  padding: 10px;
+  margin: 40px 0 0 0;
+}
+#content #notifications .alert-product {
+  text-align: center;
+  padding: 8px 4px;
+  color: white;
+  background: #84b2e0;
+  width: 28px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  margin: 26px 5px 0 5px;
+}
+#content #notifications #size-preface {
+  padding: 8px 6px;
+  color: white;
+  background: #84b2e0;
+  width: 32px;
+  border-radius: 5px;
+  margin: 26px 5px 0 5px;
+}
+#content #products {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+#content #products .product-profile {
+  height: 575px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 4px;
+  text-align: center;
+}
+#content #products .product-profile .image-container {
+  height: 82%;
+}
+#content #products .product-profile .image-container img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+}
+#content #products .product-profile h4 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+#content #products .product-profile h5 {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+#content #products .product-profile .content-wrapper {
+  height: 15%;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+#content #add-new-button {
+  transition: all 0.3s ease;
+}
+#content #add-new-button #add-new-button.hidden {
+  opacity: 0;
+}
+#content #add-new-button i {
+  font-size: 26px;
+  position: fixed;
+  bottom: 10px;
+  right: 5px;
+  background: white;
+  color: #f7a03b;
+  border-radius: 50%;
+  height: 26px;
+  box-shadow: inset 0 0 0px 2px #f7a03b;
+  transition: all 0.3s ease;
+}
+#content #add-new-button i i:before {
+  position: relative;
+  top: -12px;
+  left: -4px;
+}
+#content #add-new-button i i:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+#modal-overlay.active,
+#product-modal-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+#modal-overlay,
+#product-modal-overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #FCF9F8;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+#modal-overlay #product-modal-content,
+#product-modal-overlay #product-modal-content {
+  padding-top: 120px;
+}
+#modal-overlay #product-modal-content h2,
+#product-modal-overlay #product-modal-content h2 {
+  font-family: "Unica One", cursive;
+  font-size: 32px;
+}
+#modal-overlay #product-modal-content #new-product-form,
+#product-modal-overlay #product-modal-content #new-product-form {
+  text-align: left;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 25px 0px;
+  border-radius: 10px;
+  width: 88%;
+  margin: auto;
+}
+#modal-overlay #product-modal-content #new-product-form label,
+#product-modal-overlay #product-modal-content #new-product-form label {
+  width: 32%;
+  margin-right: 5%;
+  color: black;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  line-height: 36px;
+  text-align: right;
+}
+#modal-overlay #product-modal-content #new-product-form input,
+#modal-overlay #product-modal-content #new-product-form select,
+#modal-overlay #product-modal-content #new-product-form textarea,
+#product-modal-overlay #product-modal-content #new-product-form input,
+#product-modal-overlay #product-modal-content #new-product-form select,
+#product-modal-overlay #product-modal-content #new-product-form textarea {
+  font-size: 20px;
+  border-radius: 5px;
+  background: white;
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  width: 52%;
+  border-bottom: 3px solid #f7a03b;
+}
+#modal-overlay #product-modal-content #new-product-form select,
+#product-modal-overlay #product-modal-content #new-product-form select {
+  width: auto;
+}
+#modal-overlay #product-modal-content #new-product-form #submit-product-button,
+#product-modal-overlay #product-modal-content #new-product-form #submit-product-button {
+  color: white;
+  background: #f7a03b;
+  padding: 10px 12px;
+  font-size: 16px;
+  margin-top: 15px;
+  margin-left: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+#modal-overlay #product-modal-content .form-group,
+#product-modal-overlay #product-modal-content .form-group {
+  margin-bottom: 10px;
+  display: flex;
+}
+#modal-overlay #product-modal-content .form-group #product-size,
+#product-modal-overlay #product-modal-content .form-group #product-size {
+  font-size: 15px;
+}
+#modal-overlay #product-modal-content .form-group option,
+#product-modal-overlay #product-modal-content .form-group option {
+  font-size: 12px;
+}
+#modal-overlay #modal-content .close-btn,
+#modal-overlay #product-modal-content .close-btn,
+#product-modal-overlay #modal-content .close-btn,
+#product-modal-overlay #product-modal-content .close-btn {
+  transition: all 0.3s ease;
+}
+#modal-overlay #modal-content .close-btn:hover,
+#modal-overlay #product-modal-content .close-btn:hover,
+#product-modal-overlay #modal-content .close-btn:hover,
+#product-modal-overlay #product-modal-content .close-btn:hover {
+  color: #caffd2;
+  cursor: pointer;
+}
+#modal-overlay #modal-content,
+#modal-overlay #product-modal-content,
+#product-modal-overlay #modal-content,
+#product-modal-overlay #product-modal-content {
+  text-align: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+#modal-overlay #modal-content.active,
+#modal-overlay #product-modal-content.active,
+#product-modal-overlay #modal-content.active,
+#product-modal-overlay #product-modal-content.active {
+  opacity: 1;
+}
+#modal-overlay #modal-content .close-btn,
+#modal-overlay #product-modal-content .close-btn,
+#product-modal-overlay #modal-content .close-btn,
+#product-modal-overlay #product-modal-content .close-btn {
+  z-index: 10;
+  position: absolute;
+  top: 80px;
+  right: 25px;
+  color: #f7a03b;
+  font-size: 30px;
+}
+#modal-overlay #information h1,
+#product-modal-overlay #information h1 {
+  font-size: 90px;
+  font-weight: 500;
+}
+#modal-overlay .product-details,
+#product-modal-overlay .product-details {
+  position: absolute;
+  top: 120px;
+  left: 24vw;
+  width: 50%;
+  margin-bottom: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+#modal-overlay .product-details h2,
+#modal-overlay .product-details h3,
+#modal-overlay .product-details h4,
+#modal-overlay .product-details h5,
+#product-modal-overlay .product-details h2,
+#product-modal-overlay .product-details h3,
+#product-modal-overlay .product-details h4,
+#product-modal-overlay .product-details h5 {
+  margin-bottom: 8px;
+}
+#modal-overlay .product-details h3,
+#product-modal-overlay .product-details h3 {
+  text-transform: uppercase;
+}
+#modal-overlay .product-details img,
+#product-modal-overlay .product-details img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+#modal-overlay .product-details .content-wrapper,
+#product-modal-overlay .product-details .content-wrapper {
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+footer {
+  height: 8vh;
+  background-color: #c098d7;
+  padding: 8px;
+  color: white;
+}
+footer h4 {
+  text-align: center;
+  width: 100%;
+  padding-bottom: 10px;
+}
+footer ul {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+footer ul a {
+  color: white;
+}
+footer ul a:hover {
+  color: #caffd2;
+}
+footer ul li {
+  width: 46%;
+  text-align: center;
+  list-style: none;
+  font-size: 14px;
+}
+footer ul li i {
+  font-size: 14px;
+  padding-right: 4px;
+}
+footer p {
+  display: none;
+}
+
+@media only screen and (min-width: 760px) {
+  #spirit-content {
+    top: 42px;
+  }
+  #spirit-content #page-content h1 {
+    font-size: 35px;
+  }
+  #spirit-content #page-content img {
+    height: 250px;
+    padding-bottom: 10px;
+  }
+  #spirit-content #page-content #about-content {
+    font-size: 16px;
+  }
+  #page-content h1 {
+    font-size: 35px;
+    margin: 15px;
+  }
+  #page-content img {
+    height: 250px;
+  }
+  nav {
+    height: 11vh;
+    line-height: 11vh;
+    width: 100%;
+    padding: 0 10px;
+  }
+  nav #logo img {
+    margin: 7px 0;
+    height: 9vh;
+  }
+  nav #logo #company {
+    line-height: 11vh;
+    width: 180px;
+  }
+  nav #logo #company h1 {
+    font-size: 35px;
+  }
+  nav #nav-bar {
+    min-height: 10vh;
+    display: block;
+    margin-top: 0;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+  }
+  nav #nav-bar #site-links {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    height: auto;
+    margin-top: 0;
+    margin-right: 45px;
+  }
+  nav #nav-bar #site-links li {
+    width: 20%;
+    margin-left: 30px;
+  }
+  nav #nav-bar #site-links a:hover {
+    color: #caffd2;
+  }
+  nav #hamburger {
+    display: none;
+  }
+  .toolbar {
+    margin-top: 60px;
+  }
+  .toolbar .dropbtn {
+    font-size: 16px;
+    padding: 6px;
+  }
+  .toolbar .dropbtn:hover i {
+    margin-left: 5px;
+  }
+  .toolbar .dropdown-content {
+    min-width: 740px;
+    padding: 8px 0;
+  }
+  .toolbar .dropdown-content a {
+    font-size: 16px;
+    padding: 6px;
+  }
+  #content #notifications {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #content #notifications .alert {
+    margin: 50px 0 0 0;
+  }
+  #content #notifications .alert-product {
+    margin: 50px 5px 0 5px;
+  }
+  #content #notifications #size-preface {
+    margin: 50px 5px 0 5px;
+  }
+  #content #products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+  #content #products .product-profile {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 4px;
+    text-align: center;
+  }
+  #content #products .product-profile h4 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  #content #products .product-profile h5 {
+    font-size: 22px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  #content #products .product-profile .content-wrapper {
+    height: 21%;
+  }
+  #content #add-new-button i {
+    font-size: 30px;
+    height: 30px;
+    bottom: 15px;
+  }
+  #modal-overlay.active,
+#product-modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  #modal-overlay #product-modal-content,
+#product-modal-overlay #product-modal-content {
+    padding-top: 200px;
+  }
+  #modal-overlay #product-modal-content h2,
+#product-modal-overlay #product-modal-content h2 {
+    font-size: 35px;
+  }
+  #modal-overlay #product-modal-content #new-product-form label,
+#product-modal-overlay #product-modal-content #new-product-form label {
+    width: 29%;
+    font-size: 16px;
+  }
+  #modal-overlay #product-modal-content #new-product-form #submit-product-button,
+#product-modal-overlay #product-modal-content #new-product-form #submit-product-button {
+    margin-left: 63px;
+  }
+  #modal-overlay #modal-content .close-btn,
+#modal-overlay #product-modal-content .close-btn,
+#product-modal-overlay #modal-content .close-btn,
+#product-modal-overlay #product-modal-content .close-btn {
+    top: 130px;
+    font-size: 35px;
+  }
+  #modal-overlay .product-details,
+#product-modal-overlay .product-details {
+    top: 200px;
+  }
+  #modal-overlay .product-details h2,
+#modal-overlay .product-details h3,
+#modal-overlay .product-details h4,
+#modal-overlay .product-details h5,
+#product-modal-overlay .product-details h2,
+#product-modal-overlay .product-details h3,
+#product-modal-overlay .product-details h4,
+#product-modal-overlay .product-details h5 {
+    margin-bottom: 10px;
+  }
+  #modal-overlay .product-details h2,
+#product-modal-overlay .product-details h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  #modal-overlay .product-details h3,
+#product-modal-overlay .product-details h3 {
+    font-size: 22px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  #modal-overlay .product-details h3,
+#product-modal-overlay .product-details h3 {
+    text-transform: uppercase;
+  }
+  #modal-overlay .product-details h5,
+#product-modal-overlay .product-details h5 {
+    font-size: 20px;
+  }
+  footer {
+    height: 15vh;
+    background-color: #c098d7;
+    padding: 8px;
+    color: white;
+  }
+  footer h4 {
+    font-size: 24px;
+    padding-top: 18px;
+  }
+  footer ul {
+    margin: 5px 0;
+  }
+  footer ul li {
+    font-size: 22px;
+    width: 50%;
+  }
+  footer ul li i {
+    font-size: 22px;
+    padding-right: 4px;
+  }
+  footer p {
+    padding-top: 10px;
+    display: block;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #spirit-content {
+    padding: 0px 45px;
+    top: 0;
+  }
+  #spirit-content #page-content h1 {
+    font-size: 38px;
+  }
+  #spirit-content #page-content img {
+    height: 300px;
+  }
+  #spirit-content #page-content #about-content {
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px 30px;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    height: 21vh;
+    padding: 0;
+    line-height: 8vh;
+    background-color: #c098d7;
+  }
+  nav #logo {
+    padding-top: 16px;
+    margin: auto;
+    justify-content: center;
+  }
+  nav #logo #company h1 {
+    font-size: 40px;
+  }
+  nav #logo #desktop-img {
+    display: block;
+    margin-left: 20px;
+  }
+  nav #logo img {
+    border-radius: 50%;
+    -webkit-animation: rotation 5s infinite linear;
+            animation: rotation 5s infinite linear;
+  }
+  @-webkit-keyframes rotation {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(359deg);
+    }
+  }
+  @keyframes rotation {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(359deg);
+    }
+  }
+  nav #logo #company {
+    font-size: 35px;
+    width: auto;
+  }
+  nav #nav-bar {
+    background-color: transparent;
+    width: 100%;
+  }
+  nav #nav-bar #site-links {
+    justify-content: center;
+    margin-right: 0;
+  }
+  nav #nav-bar #site-links li {
+    color: black;
+    font-size: 30px;
+    margin: 0;
+  }
+  nav #nav-bar #site-links a:hover {
+    color: #caffd2;
+    cursor: pointer;
+  }
+  .toolbar {
+    font-size: 22px;
+    padding-top: 170px;
+    padding-left: 25px;
+    margin-top: 12px;
+  }
+  .toolbar .dropdown-content {
+    min-width: 388px;
+  }
+  #content {
+    padding: 0 20px;
+  }
+  #content #notifications .alert {
+    padding-left: 20px;
+  }
+  #content #products {
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+  }
+  #content #products .product-profile img {
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+  #content #products .product-profile img:hover {
+    opacity: 1;
+  }
+  #content #products .product-profile h3 {
+    font-size: 32px;
+  }
+  #content #products .product-profile h4 {
+    font-size: 24px;
+  }
+  #content #products .product-profile h5 {
+    font-size: 16px;
+  }
+  #add-new-button i {
+    font-size: 38px;
+    height: 38px;
+    bottom: 20px;
+    right: 15px;
+  }
+  #modal-overlay .product-details,
+#product-modal-overlay .product-details {
+    top: 180px;
+  }
+  #modal-overlay .product-details img,
+#product-modal-overlay .product-details img {
+    height: 390px;
+  }
+  #modal-overlay .product-details h2,
+#modal-overlay .product-details h3,
+#modal-overlay .product-details h4,
+#modal-overlay .product-details h5,
+#product-modal-overlay .product-details h2,
+#product-modal-overlay .product-details h3,
+#product-modal-overlay .product-details h4,
+#product-modal-overlay .product-details h5 {
+    margin-bottom: 4px;
+  }
+  #modal-overlay .product-details h2,
+#product-modal-overlay .product-details h2 {
+    padding-top: 0;
+    font-size: 25px;
+  }
+  #modal-overlay .product-details h3,
+#product-modal-overlay .product-details h3 {
+    font-size: 17px;
+    text-transform: uppercase;
+  }
+  #modal-overlay .product-details h3,
+#product-modal-overlay .product-details h3 {
+    text-transform: uppercase;
+  }
+  #modal-overlay .product-details h5,
+#product-modal-overlay .product-details h5 {
+    font-size: 15px;
+  }
+  #modal-overlay .product-details .content-wrapper,
+#product-modal-overlay .product-details .content-wrapper {
+    background-color: transparent;
+  }
+  #modal-overlay h2,
+#product-modal-overlay h2 {
+    font-size: 50px;
+    padding-top: 8px;
+  }
+  #modal-overlay #modal-content .close-btn,
+#modal-overlay #product-modal-content .close-btn,
+#product-modal-overlay #modal-content .close-btn,
+#product-modal-overlay #product-modal-content .close-btn {
+    top: 185px;
+    right: 30px;
+    font-size: 35px;
+  }
+  #modal-overlay #product-modal-content,
+#product-modal-overlay #product-modal-content {
+    padding-top: 210px;
+  }
+  #modal-overlay #product-modal-content #new-product-form label,
+#product-modal-overlay #product-modal-content #new-product-form label {
+    font-size: 22px;
+    width: 26%;
+  }
+  #modal-overlay #product-modal-content #new-product-form #submit-product-button,
+#product-modal-overlay #product-modal-content #new-product-form #submit-product-button {
+    margin-left: 105px;
+  }
+  #modal-overlay #product-modal-content #new-product-form label,
+#product-modal-overlay #product-modal-content #new-product-form label {
+    font-size: 18px;
+    width: 37%;
+    margin-right: 3%;
+  }
+  #modal-overlay #product-modal-content #new-product-form input,
+#product-modal-overlay #product-modal-content #new-product-form input {
+    width: 28%;
+  }
+  #modal-overlay #product-modal-content #new-product-form #submit-product-button,
+#product-modal-overlay #product-modal-content #new-product-form #submit-product-button {
+    margin-left: 200px;
+  }
+  footer {
+    height: 16vh;
+  }
+  footer p {
+    padding-top: 5px;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  nav #logo #company h1 {
+    font-size: 66px;
+  }
+  .toolbar {
+    padding-top: 255px;
+  }
+  #content #products {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  #content #products .product-profile {
+    padding-top: 10px;
+  }
+  #content #products .product-profile img {
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+  #content #products .product-profile img:hover {
+    opacity: 1;
+  }
+  #content #products .product-profile h3 {
+    font-size: 32px;
+  }
+  #content #products .product-profile h4 {
+    font-size: 24px;
+  }
+  #content #products .product-profile h5 {
+    font-size: 16px;
+  }
+  #modal-overlay .product-details,
+#product-modal-overlay .product-details {
+    top: 280px;
+  }
+  #modal-overlay .product-details img,
+#product-modal-overlay .product-details img {
+    top: 495px;
+  }
+  #modal-overlay #product-modal-content,
+#product-modal-overlay #product-modal-content {
+    padding-top: 300px;
+  }
+  #modal-overlay #modal-content .close-btn,
+#modal-overlay #product-modal-content .close-btn,
+#product-modal-overlay #modal-content .close-btn,
+#product-modal-overlay #product-modal-content .close-btn {
+    top: 260px;
+  }
+  #modal-overlay #product-modal-content #new-product-form #submit-product-button,
+#product-modal-overlay #product-modal-content #new-product-form #submit-product-button {
+    margin-left: 480px;
+  }
+  footer h4 {
+    padding-top: 30px;
+  }
+}/*# sourceMappingURL=style.css.map */
